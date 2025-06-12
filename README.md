@@ -38,11 +38,11 @@ yarn install
 - Create a `tasks` table using the SQL in `supabase.txt`.
 - Enable Row Level Security (RLS) as shown in the SQL file.
 - Get your Supabase URL and Anon Key from your project settings.
-- Copy `.env.example` to `.env` and fill in your Supabase credentials:
-  ```env
-  VITE_SUPABASE_URL=your-supabase-url
-  VITE_SUPABASE_ANON_KEY=your-anon-key
-  ```
+- Goto src>lib>supabaseClient.ts file and paste your
+  
+  SUPABASE_URL=your-supabase-url
+  SUPABASE_ANON_KEY=your-anon-key
+  
 
 ### 4. Run the App
 ```sh
