@@ -1,0 +1,31 @@
+-- Create tasks table
+create table if not exists public.tasks (
+  id uuid primary key default gen_random_uuid(),
+  title text not null,
+  description text,
+  priority text,
+  status text,
+  assignee_name text,
+  assignee_avatar text,
+  due_date text,
+  created_at text,
+  user_id uuid
+);
+
+-- Enable Row Level Security (RLS) on tasks table
+alter table public.tasks enable row level security;
+
+-- Development: Allow all access to tasks table (for testing)
+create policy "Allow all" on public.tasks for all using (true);
+
+-- Remove teams and team_members tables, keep only tasks
+-- Drop team-related tables if they exist
+DROP TABLE IF EXISTS public.team_members CASCADE;
+DROP TABLE IF EXISTS public.teams CASCADE;
+
+-- Update tasks table to remove team field if desired (optional)
+-- ALTER TABLE public.tasks DROP COLUMN IF EXISTS team;
+
+
+
+//Paste this code in SQL editor in supabase to get all things at once
